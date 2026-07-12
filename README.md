@@ -7,14 +7,13 @@ The goal was to design a network the way a real organization would — isolating
 
 ## Architecture
 
-<img width="919" height="601" alt="image" src="https://github.com/user-attachments/assets/2f242f07-aec7-4076-b370-9ef26664c620" />
-
+![Topology](screenshots/01-topology.png)
 
 **Devices:**
 - 1 Router (Router-on-a-Stick configuration)
 - 1 Layer 2 Switch
 - 4 PCs (HR, Finance, IT, Guest)
-- 1 Server (IT/Admin segment)
+- 1 Server (IT/Admin segment — placed for future DHCP/DNS services; not yet configured in this version)
 
 **VLAN Design:**
 
@@ -62,21 +61,15 @@ Connectivity was tested from each VLAN to confirm ACL enforcement matched the in
 
 | From | To | Expected | Result | Screenshot |
 |---|---|---|---|---|
-| HR | IT | Allowed | ✅ Success | <img width="615" height="304" alt="image" src="https://github.com/user-attachments/assets/45f591f6-f989-4cdb-b24d-f80c87c308fd" />
- |
-| HR | Finance | Blocked | ❌ Timeout | <img width="618" height="264" alt="image" src="https://github.com/user-attachments/assets/1bcdaf71-8a4d-4814-bba9-ed9fdb89a8a3" />
- |
-| Guest | HR | Blocked | ❌ Timeout | <img width="636" height="292" alt="image" src="https://github.com/user-attachments/assets/67ac15dd-865d-4312-b633-32fb8d4685b4" />
- |
-| Guest | Finance | Blocked | ❌ Timeout | <img width="629" height="273" alt="image" src="https://github.com/user-attachments/assets/1f0a6e82-c41d-4f43-abe5-417b3e23609c" />
- |
-| IT | Finance | Allowed | ✅ Success | <img width="608" height="316" alt="image" src="https://github.com/user-attachments/assets/c198a572-9b49-4ce7-866a-dfb9d72227da" />
- |
+| HR | IT | Allowed | ✅ Success | [06](screenshots/06-test-hr-to-it-success.png) |
+| HR | Finance | Blocked | ❌ Timeout | [07](screenshots/07-test-hr-to-finance-blocked.png) |
+| Guest | HR | Blocked | ❌ Timeout | [08](screenshots/08-test-guest-to-hr-blocked.png) |
+| Guest | Finance | Blocked | ❌ Timeout | [09](screenshots/09-test-guest-to-finance-blocked.png) |
+| IT | Finance | Allowed | ✅ Success | [11](screenshots/11-test-it-to-finance-success.png) |
 
 Port security was also verified by attempting to connect an unauthorized device to a locked access port, triggering an err-disabled state:
 
-<img width="697" height="176" alt="image" src="https://github.com/user-attachments/assets/98b4f6fa-b106-44b7-b489-b835a8788b38" />
-
+![Port Security](screenshots/10-port-security.png)
 
 ## Skills Demonstrated
 - VLAN design and configuration
@@ -84,3 +77,6 @@ Port security was also verified by attempting to connect an unauthorized device 
 - Access Control Lists (standard & extended) applying least-privilege
 - Layer 2 port security / MAC-based access control
 - Network documentation and security rationale
+
+## Notes
+This project was built as part of ongoing CCNA study and serves as a bridge toward security-focused networking work, including future Red Teaming preparation.
