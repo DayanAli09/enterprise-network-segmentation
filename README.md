@@ -77,6 +77,3 @@ Port security was also verified by attempting to connect an unauthorized device 
 - Access Control Lists (standard & extended) applying least-privilege
 - Layer 2 port security / MAC-based access control
 - Network documentation and security rationale
-
-## Notes
-This project was built as part of ongoing CCNA study and serves as a bridge toward security-focused networking work, including future Red Teaming preparation.
